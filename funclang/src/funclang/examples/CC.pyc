@@ -1,0 +1,44 @@
+
+//Start of PyC craps
+
+PlayerBalance = 500
+ActiveGame = 0
+Point = 0
+Printed = 0
+
+print("Welcome to Casino Craps,")
+print("How would you like to spend your money?")
+print("")
+if (Point == 0 and Printed != 1) {
+    print("OFF")
+    Printed = 1
+}
+
+if (Point == 1 and Printed != 1){
+    print("ON")
+    Printed = 1
+}
+
+
+
+//Start of Point menu
+print("")
+print(".                 Don't")
+print(".  Point   Come   Come")
+print(".  =====  =====  =====")
+
+
+
+
+
+
+
+
+print("")               //Start of bet menu
+print("Bet Menu")
+print("-------------------")
+print("1. Bet Pass")
+print("2. Bet Dont Pass")
+print("3. Roll")
+
+print("out")
