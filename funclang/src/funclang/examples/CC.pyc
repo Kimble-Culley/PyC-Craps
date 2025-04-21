@@ -1,44 +1,70 @@
 
+
+
+
 //Start of PyC craps
 
 PlayerBalance = 500
 ActiveGame = 0
 Point = 0
 Printed = 0
+choice = 0
 
 print("Welcome to Casino Craps,")
 print("How would you like to spend your money?")
-print("")
-if (Point == 0 and Printed != 1) {
-    print("OFF")
-    Printed = 1
+
+//Start of main program
+while(PlayerBalance != 0){
+
+
+    //Start of point system
+    print("")
+    if (Point == 0 and Printed != 1) {
+        print("OFF")
+        Printed = 1
+    }
+    if (Point == 1 and Printed != 1){
+        print("ON")
+        Printed = 1
+    }
+
+
+
+    //Start of Point menu
+    print(".                 Don't")
+    print(".  Point   Come   Come")
+    print(".  =====  =====  =====")
+
+
+
+
+    // PlayerBalance
+    print("Chips Balance: $", PlayerBalance)
+
+
+    //Start of bet menu
+    print("")               
+    print("Bet Menu")
+    print("---------------------")
+
+    if (ActiveGame == 0){
+        print("1. Bet Pass Line")
+        print("2. Bet Dont Pass Line")
+    }
+    if (ActiveGame == 1){
+        print("1. Bet Come")
+        print("2. Bet Dont Come")
+    }
+    print("3. Roll")
+    choice = input("Your Choice? ")
+
+
+    if(choice == 3){
+        Die1 = random(1,6)
+        Die2 = random(1,6)
+        DieTotal = Die1 + Die2
+        PrintDice(Die1)
+    }
+
 }
 
-if (Point == 1 and Printed != 1){
-    print("ON")
-    Printed = 1
-}
-
-
-
-//Start of Point menu
-print("")
-print(".                 Don't")
-print(".  Point   Come   Come")
-print(".  =====  =====  =====")
-
-
-
-
-
-
-
-
-print("")               //Start of bet menu
-print("Bet Menu")
-print("-------------------")
-print("1. Bet Pass")
-print("2. Bet Dont Pass")
-print("3. Roll")
-
-print("out")
