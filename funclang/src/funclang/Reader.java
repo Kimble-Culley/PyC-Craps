@@ -46,7 +46,7 @@ public class Reader {
 		return runFile(programText);
 	}
 	
-	protected String getProgramDirectory() { return "build"+File.separator+"funclang"+File.separator+"examples"+File.separator; }
+	protected String getProgramDirectory() { return "src"+File.separator+"funclang"+File.separator+"examples"+File.separator; }
 	private String runFile(String programText) throws IOException {
 		if(programText.startsWith("run ")){
 			programText = readFile(getProgramDirectory() + programText.substring(4));

@@ -4,10 +4,25 @@
 
 //Start of PyC craps
 
+//Balance and bets
 PlayerBalance = 500
+passbet = 0
+dontpassbet = 0
+comebet = 0
+dontcomebet = 0
+
+// Pointer
+passbetpointer = 0
+dontpassbetpointer = 0
+comebetpointer = 0
+dontcomebetpointer = 0
+pointerphase = 0
+DieTotal = 0
 ActiveGame = 0
 Point = 0
 Printed = 0
+
+betchoice = 0
 choice = 0
 
 print("Welcome to Casino Craps,")
@@ -16,27 +31,91 @@ print("How would you like to spend your money?")
 //Start of main program
 while(PlayerBalance != 0){
 
-
-    //Start of point system
-    print("")
-    if (Point == 0 and Printed != 1) {
-        print("OFF")
-        Printed = 1
-    }
-    if (Point == 1 and Printed != 1){
+    if(ActiveGame == 1){
         print("ON")
-        Printed = 1
+        print("Come:", comebetpointer)
+        print("Dont Come:", dontcomebetpointer)
+        print("Pass:", passbetpointer)
+        print("Dont Come:", dontpassbetpointer)  
     }
 
-
-
-    //Start of Point menu
-    print(".                 Don't")
-    print(".  Point   Come   Come")
-    print(".  =====  =====  =====")
-
-
-
+   if(DieTotal == 2){
+        print("+-------+ +-------+")
+        print("|       | |       |")
+        print("|   o   | |   o   |")
+        print("|       | |       |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 3){
+        print("+-------+ +-------+")
+        print("| o     | |       |")
+        print("|       | |   o   |")
+        print("|     o | |       |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 4){
+        print("+-------+ +-------+")
+        print("| o     | | o     |")
+        print("|       | |       |")
+        print("|     o | |     o |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 5){
+        print("+-------+ +-------+")
+        print("| o     | | o     |")
+        print("|   o   | |       |")
+        print("|     o | |     o |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 6){
+        print("+-------+ +-------+")
+        print("| o     | | o     |")
+        print("|   o   | |   o   |")
+        print("|     o | |     o |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 7){
+        print("+-------+ +-------+")
+        print("| o   o | | o     |")
+        print("|       | |   o   |")
+        print("| o   o | |     o |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 8){
+        print("+-------+ +-------+")
+        print("| o   o | | o   o |")
+        print("|       | |       |")
+        print("| o   o | | o   o |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 9){
+        print("+-------+ +-------+")
+        print("| o   o | | o   o |")
+        print("|   o   | |       |")
+        print("| o   o | | o   o |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 10){
+        print("+-------+ +-------+")
+        print("| o   o | | o   o |")
+        print("|   o   | |   o   |")
+        print("| o   o | | o   o |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 11){
+        print("+-------+ +-------+")
+        print("| o   o | | o   o |")
+        print("| o   o | |   o   |")
+        print("| o   o | | o   o |")
+        print("+-------+ +-------+")
+    }
+    if(DieTotal == 12){
+        print("+-------+ +-------+")
+        print("| o   o | | o   o |")
+        print("| o   o | | o   o |")
+        print("| o   o | | o   o |")
+        print("+-------+ +-------+")
+    }
 
     // PlayerBalance
     print("Chips Balance: $", PlayerBalance)
@@ -47,24 +126,242 @@ while(PlayerBalance != 0){
     print("Bet Menu")
     print("---------------------")
 
-    if (ActiveGame == 0){
-        print("1. Bet Pass Line")
-        print("2. Bet Dont Pass Line")
+    if (ActiveGame != 1){
+        pointerphase = 0
+        print("1. Bet Pass")
+        print("2. Bet Dont Pass")
+        print("3. Roll")
+        choice = input("Your Choice? ")
+
+        if(choice == 1){
+            print("Make a choice of bet amount:")
+            print("---------------------------")
+            print("1. 50")
+            print("2. 100")
+            print("3. 200")
+            betchoice = input("Your Choice: ")
+            if(betchoice == 1){
+                PlayerBalance = (PlayerBalance - 50)
+                passbet = passbet + 50
+            }
+            if(betchoice == 2){
+                PlayerBalance = (PlayerBalance - 100)
+                passbet = passbet + 100
+            }
+            if(betchoice == 3){
+                PlayerBalance = (PlayerBalance - 200)
+                passbet = passbet + 200
+            }
+        }
+        if(choice == 2){
+            print("Make a choice of bet amount:")
+            print("---------------------------")
+            print("1. 50")
+            print("2. 100")
+            print("3. 200")
+            betchoice = input("Your Choice: ")
+            if(betchoice == 1){
+                PlayerBalance = (PlayerBalance - 50)
+                dontpassbet = dontpassbet + 50
+            }
+            if(betchoice == 2){
+                PlayerBalance = (PlayerBalance - 100)
+                dontpassbet = dontpassbet + 100
+            }
+            if(betchoice == 3){
+                PlayerBalance = (PlayerBalance - 200)
+                dontpassbet = dontpassbet + 200
+            }
+        }
+        if(choice == 3){
+            Die1 = random(1,6)
+            Die2 = random(1,6)
+            DieTotal = Die1 + Die2
+            print("Dice roll:", DieTotal)
+            if(DieTotal == 7 || DieTotal == 11){
+                print("PASS BET WINS!")
+                PlayerBalance = PlayerBalance + passbet * 2
+                passbet = 0
+                dontpassbet = 0
+            }
+            if(DieTotal == 2 || DieTotal == 3 || DieTotal == 12){
+                print("DONTPASS BET WINS!")
+                PlayerBalance = PlayerBalance + dontpassbet * 2
+                passbet = 0
+                dontpassbet = 0
+            }
+            if(DieTotal != 2 && DieTotal != 3 && DieTotal != 7 && DieTotal !=11 && DieTotal != 12){
+                ActiveGame = 1
+                if(passbet != 0){
+                    passbetpointer = DieTotal
+                }
+                else{
+                    dontpassbet = DieTotal
+                }
+            }
+        }
+            print("PASSPOINTER:", passbetpointer)
+            print("DONTPASSPOINTER:", dontpassbetpointer)
+            print("COMEBETPOINTER:", comebetpointer)
+            print("DONTCOMEBETPOINTER:", dontcomebetpointer)
     }
-    if (ActiveGame == 1){
+    else{
         print("1. Bet Come")
         print("2. Bet Dont Come")
+        print("3. Roll")
+        choice = input("Your Choice? ")
+
+        if(choice == 1){
+            print("Make a choice of bet amount:")
+            print("---------------------------")
+            print("1. 50")
+            print("2. 100")
+            print("3. 200")
+            betchoice = input("Your Choice: ")
+            print(betchoice)
+            print(betchoice)
+            print(betchoice)
+            print(betchoice)
+            if(betchoice == 1){
+                PlayerBalance = (PlayerBalance - 50)
+                comebet = comebet + 50
+            }
+            if(betchoice == 2){
+                PlayerBalance = (PlayerBalance - 100)
+                comebet = comebet + 100
+            }
+            if(betchoice == 3){
+                PlayerBalance = (PlayerBalance - 200)
+                comebet = comebet + 200
+            }
+        }
+        if(choice == 2){
+            print("Make a choice of bet amount:")
+            print("---------------------------")
+            print("1. 50")
+            print("2. 100")
+            print("3. 200")
+            betchoice = input("Your Choice: ")
+            if(betchoice == 1){
+                PlayerBalance = (PlayerBalance - 50)
+                dontcomebet = dontcomebet + 50
+            }
+            if(betchoice == 2){
+                PlayerBalance = (PlayerBalance - 100)
+                dontcomebet = dontcomebet + 100
+            }
+            if(betchoice == 3){
+                PlayerBalance = (PlayerBalance - 200)
+                dontcomebet = dontcomebet + 200
+            }
+        }
+        if(choice == 3){
+            Die1 = random(1,6)
+            Die2 = random(1,6)
+            DieTotal = Die1 + Die2
+            print("Dice roll:", DieTotal)
+            if(DieTotal == 7 && passbetpointer != 0){
+                print("DONTPASS POINTER-PHASE WINS") 
+                PlayerBalance = PlayerBalance + dontpassbet * 2
+                passbetpointer = 0 
+                dontpassbetpointer = 0
+                passbet = 0
+                dontpassbet = 0 
+            }
+            if(DieTotal == 7 && dontpassbetpointer != 0){
+                print("PASS POINTER-PHASE WINS")
+                PlayerBalance = PlayerBalance + passbet * 2
+                passbetpointer = 0 
+                dontpassbetpointer = 0 
+                passbet = 0
+                dontpassbet = 0 
+            }
+            if(DieTotal == passbetpointer){
+                print("PASSBET POINTER-PHASE WINS")
+                PlayerBalance = PlayerBalance + passbet * 2
+                passbetpointer = 0 
+                dontpassbetpointer = 0
+                passbet = 0
+                dontpassbet = 0 
+            }
+            if(DieTotal == dontpassbetpointer){
+                print("DONTPASSBET POINTER-PHASE WINS")
+                PlayerBalance = PlayerBalance + dontpassbet * 2
+                passbetpointer = 0 
+                dontpassbetpointer = 0
+                passbet = 0
+                dontpassbet = 0   
+            }
+
+           if(DieTotal == 7 && comebetpointer != 0){
+                print("DONTCOME POINTER-PHASE WINS") 
+                PlayerBalance = PlayerBalance + dontcomebet * 2
+                comebetpointer = 0 
+                dontcomebetpointer = 0
+                comebet = 0
+                dontcomebet = 0 
+                ActiveGame = 0
+
+            }
+            if(DieTotal == 7 && dontcomebetpointer != 0){
+                print("COME POINTER-PHASE WINS")
+                PlayerBalance = PlayerBalance + comebet * 2
+                comebetpointer = 0 
+                dontcomebetpointer = 0
+                comebet = 0
+                dontcomebet = 0 
+                ActiveGame = 0
+            }
+            if(DieTotal == comebetpointer){
+                print("COME POINTER-PHASE WINS")
+                PlayerBalance = PlayerBalance + comebet * 2
+                comebetpointer = 0 
+                dontcomebetpointer = 0
+                comebet = 0
+                dontcomebet = 0 
+                ActiveGame = 0
+            }
+            if(DieTotal == dontcomebetpointer){
+                print("DONTCOME POINTER-PHASE WINS")
+                PlayerBalance = PlayerBalance + dontcomebet * 2
+                comebetpointer = 0 
+                dontcomebetpointer = 0
+                comebet = 0
+                dontcomebet = 0 
+                ActiveGame = 0
+            }
+
+            if(pointerphase != 1){
+               if(DieTotal == 7 || DieTotal == 11){
+                    print("COME BET WINS!")
+                    PlayerBalance = PlayerBalance + comebet * 2
+                    comebet = 0
+                    dontcomebet = 0
+                    ActiveGame = 0
+                }
+                if(DieTotal == 2 || DieTotal == 3 || DieTotal == 12){
+                    print("DONTCOME BET WINS!")
+                    PlayerBalance = PlayerBalance + dontcomebet * 2
+                    comebet = 0
+                    dontcomebet = 0
+                    ActiveGame = 0
+                }
+                if(DieTotal != 2 && DieTotal != 3 && DieTotal != 7 && DieTotal !=11 && DieTotal != 12){
+                    if(comebet != 0){
+                        comebetpointer = DieTotal
+                    }
+                    else{
+                        dontcomebetpointer = DieTotal
+                    }
+                    pointerphase = 1
+                }
+                print("PASSPOINTER:", passbetpointer)
+                print("DONTPASSPOINTER:", dontpassbetpointer)
+                print("COMEBETPOINTER:", comebetpointer)
+                print("DONTCOMEBETPOINTER:", dontcomebetpointer)
+            }
+        }
     }
-    print("3. Roll")
-    choice = input("Your Choice? ")
-
-
-    if(choice == 3){
-        Die1 = random(1,6)
-        Die2 = random(1,6)
-        DieTotal = Die1 + Die2
-        PrintDice(Die1)
-    }
-
 }
+print("YOU SUCK! GO HOME!")
 
