@@ -215,10 +215,6 @@ while(PlayerBalance != 0){
             print("2. 100")
             print("3. 200")
             betchoice = input("Your Choice: ")
-            print(betchoice)
-            print(betchoice)
-            print(betchoice)
-            print(betchoice)
             if(betchoice == 1){
                 PlayerBalance = (PlayerBalance - 50)
                 comebet = comebet + 50
