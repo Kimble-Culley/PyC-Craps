@@ -94,7 +94,7 @@ while(PlayerBalance != 0){
         print("|   o   | |       |")
         print("| o   o | | o   o |")
         print("+-------+ +-------+")
-    }
+    }xz
     if(DieTotal == 10){
         print("+-------+ +-------+")
         print("| o   o | | o   o |")
@@ -200,10 +200,7 @@ while(PlayerBalance != 0){
                 }
             }
         }
-            print("PASSPOINTER:", passbetpointer)
-            print("DONTPASSPOINTER:", dontpassbetpointer)
-            print("COMEBETPOINTER:", comebetpointer)
-            print("DONTCOMEBETPOINTER:", dontcomebetpointer)
+
     }
     else{
         print("1. Bet Come")
@@ -355,10 +352,6 @@ while(PlayerBalance != 0){
                     }
                     pointerphase = 1
                 }
-                print("PASSPOINTER:", passbetpointer)
-                print("DONTPASSPOINTER:", dontpassbetpointer)
-                print("COMEBETPOINTER:", comebetpointer)
-                print("DONTCOMEBETPOINTER:", dontcomebetpointer)
             }
         }
     }
