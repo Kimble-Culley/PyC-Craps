@@ -94,7 +94,7 @@ while(PlayerBalance != 0){
         print("|   o   | |       |")
         print("| o   o | | o   o |")
         print("+-------+ +-------+")
-    }xz
+    }
     if(DieTotal == 10){
         print("+-------+ +-------+")
         print("| o   o | | o   o |")
