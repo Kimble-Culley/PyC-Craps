@@ -29,7 +29,7 @@ print("Welcome to Casino Craps,")
 print("How would you like to spend your money?")
 
 //Start of main program
-while(PlayerBalance != 0){
+while(PlayerBalance >= 0){
 
     if(ActiveGame == 1){
         print("ON")
